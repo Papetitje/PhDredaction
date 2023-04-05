@@ -1,0 +1,138 @@
+\documentclass[a4paper,english,12pt]{memoir}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{times}
+\usepackage{xcolor}
+\usepackage[left=1.5cm, right=1cm, top=2cm, bottom=1.5cm]{geometry}
+\usepackage[english]{babel}
+\usepackage{tcolorbox}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage{physics}
+\usepackage{mathpazo} % Use the Palatino font by default
+\usepackage{subcaption}
+\usepackage{mwe}
+\usepackage{textcomp}
+\usepackage{alphalph}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{etoolbox}
+\usepackage{marginnote,xpatch}
+% Logos
+
+\usepackage[backend=bibtex,bibencoding=ascii,style=authoryear,natbib=true,style=numeric-comp,sorting=none]{biblatex}
+   % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+\addbibresource{biblio.bib} % The filename of the bibliography
+\usepackage[autostyle=true]{csquotes}
+
+\definecolor{darkblue}{HTML}{004C93} 
+\tcbset{
+    center title,
+		top=1cm,
+		right=0cm,
+		left=0cm,
+    colback=darkblue,
+    colframe=white,
+    width=15.85cm,
+		height=5.62cm,
+		halign=right,
+		valign=top,
+		flush right,
+		sharp corners=all
+    }
+\newcommand{\decoRule}{\rule{.8\textwidth}{.4pt}}
+\definecolor{myred1}{RGB}{255, 0, 0}
+\definecolor{myyellow1}{RGB}{255, 255, 219}
+\definecolor{mygreen1}{RGB}{0, 255, 0}
+\definecolor{mygreen2}{RGB}{0, 126, 0}
+\definecolor{myblue1}{RGB}{0, 0, 255}
+
+\makepagestyle{standard} %Make standard pagestyle
+
+\makeatletter                 %Define standard pagestyle
+\makeevenfoot{standard}{}{\thepage}{} %
+\makeoddfoot{standard}{}{\thepage}{}  %
+\makeevenhead{standard}{\leftmark}{}{}
+\makeoddhead{standard}{}{}{\rightmark}
+\makeheadrule{standard}{\textwidth}{\normalrulethickness}
+\makeatother                  %
+
+\makeatletter
+\makepsmarks{standard}{
+\createmark{chapter}{both}{shownumber}{\@chapapp\ }{ \quad }
+\createmark{section}{right}{shownumber}{}{ \quad }
+\createplainmark{toc}{both}{\contentsname}
+\createplainmark{lof}{both}{\listfigurename}
+\createplainmark{lot}{both}{\listtablename}
+\createplainmark{bib}{both}{\bibname}
+\createplainmark{index}{both}{\indexname}
+\createplainmark{glossary}{both}{\glossaryname}
+   }
+\makeatother                               %
+
+
+\nouppercaseheads
+\pagestyle{standard}               %Choosing pagestyle and chapter pagestyle
+\aliaspagestyle{chapter}{plain}    %Change plain to standard if you want the header on pages with chapter headings
+
+\begin{document}
+
+\include{Chapters/coverpage}
+\tableofcontents*
+\newpage
+
+\begin{abstract}
+Your abstract.
+\end{abstract}
+\frontmatter
+\mainmatter
+\part{Neutrino and JUNO}
+\include{Chapters/ChapMS_NS}
+\chapter{The Standard Model and the neutrino sector}
+\section{standard model}
+\section{Neutrino part of standard model}
+\section{neutrino oscillation}
+\section{Physics with JUNO}
+\chapter{JUNO Project}
+\section{JUNO experiment}
+\section{The JUNO detector}
+\section{The measurement of the mass hierarchy}
+\part{Test and development of the back-end card of JUNO}
+\chapter{JUNO electronics readout system}
+\section{Global control unit}
+\section{DAQ}
+\chapter{Trigger system of JUNO experiment}
+\section{BEC}
+\section{RMU}
+\section{CTU}
+\chapter{development of BEC}
+\section{BEC V1-3}
+\section{BEC V4}
+\section{development of BEC box}
+\subsection{isolation of RJ45 connector}
+\chapter{Test of the BEC}
+\section{loop test}
+\section{noise analysis}
+\section{automatic test}
+\subsubsection{firmware and software design}
+\subsection{results}
+\section{temperature monitoring of the BEC}
+\subsection{Calibration of the sensors}
+\subsection{ Temperature monitoring system using internet of Things}
+\section{loop test long-term test results}
+\section{combine test results}
+
+
+
+\part{Model discrimination of core collapse super nova with JUNO}
+\chapter{Core collapse super nova model}
+\chapter{Satistical method used}
+\section{Log-likelyhood}
+\section{$\Delta\chi^2$ method}
+\section{Fourier method}
+\section{Neural network}
+\end{document}
